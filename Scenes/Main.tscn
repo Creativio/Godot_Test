@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b7n6ontw80je3"]
 
-[ext_resource type="Texture2D" uid="uid://c5j00wy2rk72v" path="res://Assets/Kings and Pigs/Sprites/01-King Human/Run (78x58).png" id="1_4uq6t"]
+[ext_resource type="PackedScene" uid="uid://c5lpr48s3iyq2" path="res://Scenes/Player.tscn" id="1_h2tvl"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4uq6t")
+[node name="Player" parent="." instance=ExtResource("1_h2tvl")]
+position = Vector2(102, 112)
