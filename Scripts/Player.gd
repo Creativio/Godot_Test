@@ -29,7 +29,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	#move_and_slide()
+	move_and_slide()
 	if !is_attacking:
 		player_animation()
 
@@ -47,13 +47,15 @@ func _input(event):
 
 #animation
 func player_animation():
-	if Input.is_action_pressed("ui_left") || Input.is_action_just_released("ui_Space"):
+	if Input.is_action_pressed("ui_left"): #|| Input.is_action_just_released("ui_Space"):
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("run")
+		$CollisionShape2D.position.x = 7
 		
-	if Input.is_action_pressed("ui_right") || Input.is_action_just_released("ui_Space"):
+	if Input.is_action_pressed("ui_right"): #|| Input.is_action_just_released("ui_Space"):
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("run")
+		$CollisionShape2D.position.x = -7
 	
 	if !Input.is_anything_pressed():
 		$AnimatedSprite2D.play("idle")
